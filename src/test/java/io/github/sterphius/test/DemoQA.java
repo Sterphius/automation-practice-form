@@ -1,8 +1,10 @@
 package io.github.sterphius.test;
+
 import com.codeborne.selenide.*;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+
 import java.nio.file.Paths;
 import java.util.HashMap;
 
@@ -19,7 +21,7 @@ public class DemoQA {
     }
 
     @Test
-    void fillFormTest(){
+    void fillFormTest() {
         String
                 baseUrl = "https://demoqa.com/automation-practice-form",
                 firstName = "FirstName",
@@ -67,7 +69,7 @@ public class DemoQA {
         $(byId("currentAddress")).sendKeys(currentAddress);
 
         //hide ads
-        if (hideAdsButton.isDisplayed()){
+        if (hideAdsButton.isDisplayed()) {
             hideAdsButton.click();
         }
 
@@ -77,7 +79,7 @@ public class DemoQA {
         $(byId("stateCity-wrapper")).$(byText(city)).click();
         $(byId("submit")).click();
 
-        HashMap<String, String> formSubmit = new HashMap<>(){{
+        HashMap<String, String> formSubmit = new HashMap<>() {{
             put("Student Name", firstName + " " + lastName);
             put("Student Email", mail);
             put("Gender", genderRadioPick);
