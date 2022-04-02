@@ -1,4 +1,4 @@
-package io.github.sterphius.test;
+package io.github.sterphius.tests;
 
 import com.codeborne.selenide.*;
 import com.codeborne.selenide.Configuration;
@@ -30,7 +30,7 @@ public class DemoQA {
                 genderRadioPick = "Male",
                 mobilePhone = "7123123456",
                 birthdayYear = "1993",
-                birthdayMonth = "September",
+                birthdayMonth = "April",
                 subject1 = "Physics",
                 subject2 = "Commerce",
                 hobbiesSport = "Sports",
