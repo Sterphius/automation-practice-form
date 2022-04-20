@@ -4,10 +4,8 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.Test;
 
-import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.*;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$$;
+import static com.codeborne.selenide.Selenide.*;
 
 /*
     Вопрос:
@@ -28,11 +26,11 @@ public class SelenideWikiCheck {
     String selenideGitHubUrl = "https://github.com/selenide/selenide";
 
     @Test
-    void expectJUnitExampleAtSelenideWiki(){
+    void expectJUnitExampleAtSelenideWiki() {
         Selenide.open(selenideGitHubUrl);
         $(byId("wiki-tab")).click();
-        $(byId("wiki-body")).shouldHave(text("Soft assertions"));
-        $(byText("Soft assertions")).click();
+        $(byId("wiki-pages-filter")).sendKeys("SoftAssertions");
+        $(byAttribute("data-filterable-for", "wiki-pages-filter")).$(byText("SoftAssertions")).click();
         $$("h4").findBy(Condition.text("Using JUnit5 extend test class")).sibling(0)
                 .shouldHave(Condition.text("@ExtendWith({SoftAssertsExtension.class})"));
     }
