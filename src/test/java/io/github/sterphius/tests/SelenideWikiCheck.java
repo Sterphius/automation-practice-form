@@ -31,7 +31,6 @@ public class SelenideWikiCheck {
         $(byId("wiki-tab")).click();
         $(byId("wiki-pages-filter")).sendKeys("SoftAssertions");
         $(byAttribute("data-filterable-for", "wiki-pages-filter")).$(byText("SoftAssertions")).click();
-        $$("h4").findBy(Condition.text("Using JUnit5 extend test class")).sibling(0)
-                .shouldHave(Condition.text("@ExtendWith({SoftAssertsExtension.class})"));
+        $("#wiki-body").shouldHave(Condition.text("Using JUnit5 extend test class"));
     }
 }
