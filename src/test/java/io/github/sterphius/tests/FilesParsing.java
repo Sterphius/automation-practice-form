@@ -66,7 +66,7 @@ public class FilesParsing {
     @Test
     void parseJson() throws Exception {
         ObjectMapper mapper = new ObjectMapper();
-        ClassLoader classLoader = getClass().getClassLoader();
+        ClassLoader classLoader = FilesParsing.class.getClassLoader();
         try (InputStream is = classLoader.getResourceAsStream(pathToJson)) {
             Teacher teacher = mapper.readValue(is, Teacher.class);
             assertThat(teacher.name).isEqualTo(expectedTeacherName);
